@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.Generic;
 
 namespace MinecraftBreedingCalculatorGui
 {
@@ -28,7 +29,9 @@ namespace MinecraftBreedingCalculatorGui
 
             if (num1 < num2 && num1 >= 2)
             {
-                MessageBox.Show($"You need {2 * (num2 - num1)} resources in order to get {num2} animals");
+                int timeRequired = TimeCalculator.TimeCalculation(num1, num2);
+                MessageBox.Show($"You need {2 * (num2 - num1)} resources in order to get {num2} animals\n" +
+                    $"This may take {timeRequired} minutes to do!");
             }
             else if (num1 >= num2)
             {
@@ -38,8 +41,7 @@ namespace MinecraftBreedingCalculatorGui
             {
                 MessageBox.Show("You can't get over 1 animal with just 1 animal! You need to get looking for more.");
             }
-            Thread.Sleep(20000);
-            Application.Current.Shutdown(); //no need to have the app open anymore.
+             
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
