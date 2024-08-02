@@ -30,7 +30,7 @@ namespace MinecraftBreedingCalculatorGui
                 i++;
             }
 
-            return i*5; //return iterations *5 (as this is all done in intervals of 5 minutes (animals have a 5 minute cooldown))
+            return (i*5)-5; //return iterations *5 (as this is all done in intervals of 5 minutes (animals have a 5 minute cooldown))
         }
     }
     
